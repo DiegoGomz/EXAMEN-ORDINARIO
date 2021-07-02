@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ current_user.username }}</h1>
+    <a class="btn btn-primary" href="{{url_for('create_publicaciones')}}">Crear Publicacion</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Titulo</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for publicacion in publicaciones  %}
+            <tr>
+                <td>{{publicacion.body}}</td>
+                <td><a class="btn btn-primary" href="{{url_for('delete_publicaciones', id=publicacion.id)}}">Eliminar</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

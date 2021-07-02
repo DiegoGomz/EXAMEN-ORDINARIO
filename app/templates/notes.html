@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ current_user.username }}</h1>
+    <a class="btn btn-primary" href="{{url_for('create_notes')}}">Crear Nota</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Titulo</th>
+            <th scope="col">Compartir</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for note in notes %}
+            <tr>
+                <td>{{note.title}}</td>
+                <td><a class="btn btn-primary" href="{{url_for('share_notes', id=note.id)}}">Compartir</a></td>
+                <td><a class="btn btn-primary" href="{{url_for('delete_notes', id=note.id)}}">Eliminar</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

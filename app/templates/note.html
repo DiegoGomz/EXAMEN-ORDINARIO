@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Iniciar Sesión</h1>
+
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.title.label }}
+            {{ form.title(size=100) }}
+        </p>
+        <p>
+            {{ form.body(size=1020) }}
+        </p>
+        <p>
+            {{form.submit()}}
+        </p>
+        
+    </form>
+{% endblock %}
